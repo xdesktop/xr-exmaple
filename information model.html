@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <link ref="import" href="xr-element.html">
+    <style>
+      #bedroom {
+        --xr-container: url("http://alice.com");        
+      }
+    	#lamp {
+    		--xr-container: url("http://alice.com/bedroom");
+        --xr-tranform: translate3d(3.8, 3.8, 0.5);
+    	}
+    	#text-annotaion {
+    		--xr-container: id("lamp");
+        --xr-tranform: translate3d(-2, 0, 0) rotate3d(0, -20, 0);
+    	}
+      #image-annotaion {
+        --xr-container: id("lamp");
+        --xr-tranform: translate3d(0, 1.2, 0.1) rotate3d(0, 0, 0) scale3d(0.9, 0.9, 0.9);
+      }
+      #html-annotaion {
+        --xr-container: id("lamp");
+        --xr-tranform: translate3d(1, 0, -0.2) rotate3d(0, 20, 0);
+      }      
+    </style>
+  </head>
+  <body>
+    <xr-place id="bedroom" src="http://alice.com/bedroom">
+    </xr-place>
+    <xr-object id="lamp" src="http://object.com/lamp">
+    </xr-object>
+    <xr-annotation id="text-annotaion">
+      <H5>Lamp</H5>
+      Your Personal Wireless Lighting. Lets you control your lights.
+    </xr-annotation>
+    <xr-annotation id="image-annotaion" src="http://media.com/image/lamp">
+      <H5>Lamp</H5>
+      <img src="http://media.com/image/lamp/image.png">
+    </xr-annotation>
+    <xr-annotation id="html-annotaion">
+      <H5>Lamp</H5>
+      <xr-component xr-type="color-picker" xr-target="lamp"></xr-component>
+    </xr-annotation>
+  </body>
+</html>
